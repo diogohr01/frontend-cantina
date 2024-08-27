@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
 import styles from "../page.module.scss";
-import logoImg from '/public/logo.svg'
+import logoImgCafe from '/public/logoCafe.svg'
 import Link from 'next/link'
 import { toastSuccess } from "../components/toast";
 import { handleRegister } from "./components/register";
@@ -10,7 +10,7 @@ export default function Signup() {
             <>
                   <div className={styles.containerCenter}>
                         <Image
-                              src={logoImg}
+                              src={logoImgCafe}
                               alt="Logo da pizzaria"
                         />
                         <section className={styles.login}>

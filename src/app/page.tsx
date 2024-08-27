@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { api } from "@/services/api";
 import { redirect } from "next/navigation";
 import {cookies} from 'next/headers'
+import logoImgCafe from '/public/logoCafe.svg'
+
 
 export default function Home() {
   async function handleLogin(formData: FormData){
@@ -47,7 +49,7 @@ export default function Home() {
    <>
    <div className={styles.containerCenter}>
     <Image
-    src={logoImg}
+    src={logoImgCafe}
     alt="Logo da pizzaria" 
     />
     <section className={styles.login}>

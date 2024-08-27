@@ -34,7 +34,7 @@ export function Orders({ orders }: Props) {
                   <section className={styles.containerHeader}>
                         <h1>Ultimos pedidos</h1>
                         <button onClick={handleRefreshOrders} className={styles.refresh}>
-                              <RefreshCw size={24} color='#3fffa3' />
+                              <RefreshCw size={24} color='#fd8a07' />
                         </button>
                   </section>
 
@@ -42,7 +42,7 @@ export function Orders({ orders }: Props) {
                         {orders.map(order => (
                               <button className={styles.orderItem} key={order.id} onClick={()=>handleDetailOrder(order.id)}>
                                     <div className={styles.tag}></div>
-                                    <span>Mesa {order.table}</span>
+                                    <span>Pedido: {order.table}</span>
                               </button>
                         ))}
                   </section>

@@ -16,6 +16,9 @@
       --green-900: #3fffa3;
       --red-900: #ff3f4b;
 
+      --orange-700:#fd8a07;
+      
+
 }
 
 button{
@@ -31,8 +34,8 @@ a{
 
 
 body{
-      background-color: var(--dark-700);
-}
+      background-color: var(--gray-100);
+      }
 
 body,input, textarea,select, button{
 

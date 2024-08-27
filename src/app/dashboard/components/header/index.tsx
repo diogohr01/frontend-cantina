@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import styles from './styles.module.scss'
 import Image from 'next/image'
-import logoImg from '/public/logo.svg'
+import logoImgCafe from '/public/logoCafe.svg'
 import { LogOutIcon } from 'lucide-react'
 import { deleteCookie } from 'cookies-next'
 import { useRouter } from 'next/navigation'
@@ -22,7 +22,7 @@ export function Header(){
                   <Link href='/dashboard'>
                         <Image
                         alt='Logo sujeito pizza'
-                        src={logoImg}
+                        src={logoImgCafe}
                         width={190}
                         height={60}
                         priority={true}
@@ -30,7 +30,9 @@ export function Header(){
                   </Link>
 
                   <nav>
-                        
+                        <Link href='/dashboard/orders'>
+                              Pedidos
+                        </Link>
                         <Link href='/dashboard/category'>
                         Categoria
                         </Link>

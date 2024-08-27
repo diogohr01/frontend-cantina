@@ -1,35 +1,31 @@
-import { Orders } from "./components/orders";
-import { api } from "@/services/api";
-import { getCookiesServer } from "@/lib/cookieServer";
-import { OrderProps } from "@/lib/order.type";
+import styles from './styles.module.scss'
 
+export default function Dashboard() {
+      return (
+            <main className={styles.container}>
+                  <section className={styles.containerHeader}>
+                        <div className={styles.card}>
+                              <div className={styles.description}>
 
-async function getOrders(): Promise<OrderProps[] | []>{
-      try{
-            const token = getCookiesServer();
-            const response = await api.get('/order', {
-                  headers:{
-                        Authorization: `Bearer ${token}`
-                  }
-            })
-            console.log(response.data)
-
-            return response.data || []
-      }catch(err){ 
-            console.log(err);
-            return [];
-            
-      }
-}
-
-export default async function Dashboard(){
-
-      const orders = await getOrders();
-
-      console.log(orders)
-      return(
-            <div>
-                 <Orders orders={orders}/>
-            </div>
+                                    <span className={styles.totalVendido}>
+                                          Total vendido:
+                                    </span>
+                                    <span>R$ 400,00</span>
+                              </div>
+                        </div>
+                        <div className={styles.main}>
+                              <article className={styles.article}>
+                                    <span className={styles.rankingProdutos}>
+                                          Teste
+                                    </span>
+                              </article>
+                              <aside className={styles.aside}>
+                                    <span className={styles.extrato}>
+                                          Teste
+                                    </span>
+                              </aside>
+                        </div>
+                  </section>
+            </main>
       )
 }

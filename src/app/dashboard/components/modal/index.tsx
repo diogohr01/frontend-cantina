@@ -16,7 +16,7 @@ export function ModalOrder(){
                   <article className={styles.container}>
                        <h2>Detalhes do pedido</h2>
                        <span className={styles.table}>
-                        Mesa <b>{order[0].order.table}</b>
+                        Pedido <b>{order[0].order.table}</b>
                         
                         </span>
                         {order.map(item => (
