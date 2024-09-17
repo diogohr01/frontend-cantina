@@ -1,6 +1,7 @@
 "use server"
 import { redirect } from "next/navigation"
 import { api } from "@/services/api"
+import { toastError } from "@/app/components/toast"
 
 
 export async function handleRegister(formData: FormData){
@@ -9,7 +10,7 @@ export async function handleRegister(formData: FormData){
       const password = formData.get('password')
 
       if(name == '' || email === '' || password == ''){
-            console.log('Preencha os campos')
+            toastError({ message: 'Preencha os campos' })
             return
       }
       try{

@@ -16,7 +16,7 @@
       display: flex;
       height: 7rem;
       padding: 40px 150px;
-      background-color: var(--dark-900);
+      background-color: var(--dark-700);
       color: var(--white);
       border-radius: 16px;
       flex-direction: column;
@@ -74,27 +74,44 @@
 }
 
 .rankingProdutos{
-      background-color: var(--dark-900);
+      background-color: var(--dark-700);
       width: 100%;
       margin: 16px 16px 16px 0;
       border-radius: 16px;
       display: flex;
-      justify-content: center;
-      align-items: center;
       color: var(--white);
       border: 2px solid white;
-
+      justify-content: center;
 }
 
 .extrato{
-      background-color: var(--dark-900);
+      background-color: var(--dark-700);
       width: 100%;
       margin: 16px 0 16px 16px;
       border-radius: 16px;
       display: flex;
       justify-content: center;
-      align-items: center;
       color: var(--white);
       border: 2px solid white;
 
+}
+.tag{
+      width: 16px;
+      background-color: var(--orange-700);
+      height: 100%;
+      border-radius: 16px 0 0 16px;
+      margin-right: 16px;
+      position: relative;
+      
+}
+
+.center{
+      background-color: var(--dark-700);
+      width: 100%;
+      margin: 16px 16px 16px 16px;
+      border-radius: 16px;
+      display: flex;
+      justify-content: center;
+      color: var(--white);
+      border: 2px solid white;
 }

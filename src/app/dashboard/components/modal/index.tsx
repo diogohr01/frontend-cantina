@@ -21,8 +21,8 @@ export function ModalOrder(){
                         </span>
                         {order.map(item => (
                               <section className={styles.item}>
-                              <span>{item.amount} - <b>{item.produto.name}</b></span>
-                              <span className={styles.description}><b>Descrição do produto: </b>{item.produto.description}</span>      
+                              <b>{item.produto.name}</b>
+                              <span>Quantidade: {item.amount}</span>  
                               </section> 
                         ))}
 

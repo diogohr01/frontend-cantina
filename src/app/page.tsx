@@ -6,15 +6,17 @@ import { api } from "@/services/api";
 import { redirect } from "next/navigation";
 import {cookies} from 'next/headers'
 import logoImgCafe from '/public/logoCafe.svg'
+import { toastError, toastSuccess } from "./components/toast";
 
 
 export default function Home() {
   async function handleLogin(formData: FormData){
-    'use server'
+    "use server"
     const email = formData.get('email')
     const password = formData.get('password')
 
     if(email === "" || password === ""){
+      toastSuccess({message: 'Preencha os campos'})
       return;
     }
 
@@ -24,7 +26,9 @@ export default function Home() {
         password
       })
       if(!response.data.token){
+        toastError({message: 'Usuário/senha incorreta'})
         return;
+        
       }
       console.log(response.data)
       const expressTime =  60 * 60 * 24 * 30 * 1000;

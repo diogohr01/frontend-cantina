@@ -53,7 +53,13 @@
       flex-direction: column;
       margin: 16px 0;
       font-size: 16px;
+      border: 2px solid;
+      padding: 4px;
+      border-radius: 6px;
+      &:hover{
+      background-color: var(--dark-900);
 
+      }
 }
 .description{
       color: #CCC;
