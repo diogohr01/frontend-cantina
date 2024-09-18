@@ -13,7 +13,7 @@ interface SoldData {
 
 export default function Dashboard() {
     const [soldData, setSoldData] = useState<SoldData | null>(null);
-    const [rankingProduct, setRankingProduct] = useState<{ id: string; produto: string; quantidade: number }[]>([]);
+    const [rankingProduct, setRankingProduct] = useState<{ id: string; produto: string; quantidade: number; price: number }[]>([]);
 
     async function getSold() {
         const token = getCookieClient();
@@ -71,8 +71,9 @@ export default function Dashboard() {
                             { rankingProduct.length > 0 ?rankingProduct.map((produto) => (
                                 <div key={produto.id} className={styles.rankingProduct}>
                                     <div className={styles.descriptionProduct}>
-                                    <p >Produto: {produto.produto}</p>
-                                    <p >Quantidade: {produto.quantidade}</p>
+                                    <p > {produto.produto}</p>
+                                    <p > {produto.quantidade}</p>
+                                    <p> R${produto.price},00</p>
                                     </div>
                                    
                                 </div>
