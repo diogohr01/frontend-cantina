@@ -4,7 +4,7 @@
       border-radius: 16px;
       margin: 0 300px;
       max-width: 1200px;
-      border: 4px solid white;
+    //  border: 4px solid white;
       justify-content: flex-start;
       min-width: 1280px;
       height: auto;
@@ -21,7 +21,7 @@
       border-radius: 16px;
       flex-direction: column;
       align-items: center;
-      border: 2px solid white;
+     // border: 2px solid white;
       
 }
 
@@ -29,7 +29,7 @@
       display: flex;
       justify-content: center;
       min-width: 1280px;
-      border: 4px solid white;
+    //  border: 4px solid white;
       min-height: 720px;   
       
 }
@@ -43,7 +43,7 @@
 .card{
       width: 100%;
       justify-content: space-between ;
-      border: 2px solid white;
+    //  border: 2px solid white;
 }
 
 .main{
@@ -56,7 +56,7 @@
 }
 
 .article{
-      border: 2px solid white;
+    //  border: 2px solid white;
       width: 100%;
       height: 100%;
       display: flex;
@@ -66,7 +66,7 @@
 
 }
 .aside{
-      border: 2px solid white;
+    //  border: 2px solid white;
       width: 100%;
       height: 100%;
       display: flex;
@@ -80,8 +80,9 @@
       border-radius: 16px;
       display: flex;
       color: var(--white);
-      border: 2px solid white;
-      justify-content: center;
+      //border: 2px solid white;
+      flex-direction: column;
+     
 }
 
 .extrato{
@@ -92,12 +93,12 @@
       display: flex;
       justify-content: center;
       color: var(--white);
-      border: 2px solid white;
+      //border: 2px solid white;
 
 }
 .tag{
       width: 16px;
-      background-color: var(--orange-700);
+     // background-color: var(--orange-700);
       height: 100%;
       border-radius: 16px 0 0 16px;
       margin-right: 16px;
@@ -113,5 +114,39 @@
       display: flex;
       justify-content: center;
       color: var(--white);
-      border: 2px solid white;
+      //border: 2px solid white;
+}
+
+.rankingProduct {
+      margin-left: 0;   
+      margin-top: 10px;
+      
+      border-bottom: solid 1.5px gray;
+  }
+
+.descriptionProduct{
+      margin-left: 15px;
+      margin-bottom: 10px;
+
+}
+
+.noProducts{
+      font-weight: bold;
+      margin-top: 15px;
+      font-size: 20px;
+      margin-left: 80px;
+
+}
+.ranking{
+      display: flex;
+      justify-content: center;
+      background-color: var(--orange-700);
+      font-weight: bold;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+            border-bottom: solid 1.5px gray;
+      color: var(--white);
+      
 }
