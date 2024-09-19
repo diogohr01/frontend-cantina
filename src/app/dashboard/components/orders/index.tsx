@@ -18,7 +18,6 @@ export function Orders({ orders }: Props) {
       const router = useRouter();
 
       async function handleDetailOrder(order_id: string) {
-            console.log(order_id)
             await onRequestOpen(order_id)
 
       }
@@ -51,7 +50,7 @@ export function Orders({ orders }: Props) {
                                           </button>
                                     ))
                               ) : (
-                                    <p className={styles.notOrders}>Nenhum pedido encontrado</p>
+                                    <p className={styles.notOrders}>Nenhum pedido recente...</p>
                               )}
 
                         </section>

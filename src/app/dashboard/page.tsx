@@ -2,18 +2,19 @@
 import { api } from '@/services/api'
 import styles from './styles.module.scss'
 import { getCookieClient } from '@/lib/cookieClient';
-import { useEffect, useState } from 'react';
-
+import { useEffect, useState, useRef } from 'react';
+import { useRouter } from 'next/navigation'
 
 interface SoldData {
     totalValue: number;
-
 }
-
 
 export default function Dashboard() {
     const [soldData, setSoldData] = useState<SoldData | null>(null);
     const [rankingProduct, setRankingProduct] = useState<{ id: string; produto: string; quantidade: number; price: number }[]>([]);
+    const router = useRouter();
+    const [segundos, setSegundos] = useState<number>(60);
+    const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
     async function getSold() {
         const token = getCookieClient();
@@ -40,16 +41,50 @@ export default function Dashboard() {
                     Authorization: `Bearer ${token}`
                 }
             });
-            console.log(response.data.produtos);
             setRankingProduct(response.data.produtos);
         } catch (error) {
-            console.error("Erro ao buscar os dados do Rankind de produtos:", error);
+            console.error("Erro ao buscar os dados do Ranking de produtos:", error);
         }
+    }
+
+    function setContagem() {
+        if (intervalRef.current) {
+            clearInterval(intervalRef.current);
+        }
+
+        setSegundos(60);
+
+        const intervalId = setInterval(() => {
+            setSegundos((prevSegundos) => {
+                if (prevSegundos <= 1) {
+                    getSold();
+                    getRankingProduct();
+                    return 60; 
+                }
+                return prevSegundos - 1;
+            });
+        }, 1000);
+
+        intervalRef.current = intervalId;
+    }
+
+    function startContagem() {
+        router.refresh();
+        getSold();
+        getRankingProduct();
+        setContagem();
     }
 
     useEffect(() => {
         getSold();
         getRankingProduct();
+        setContagem();
+
+        return () => {
+            if (intervalRef.current) {
+                clearInterval(intervalRef.current);
+            }
+        };
     }, []);
 
     return (
@@ -57,27 +92,35 @@ export default function Dashboard() {
             <section className={styles.containerHeader}>
                 <div className={styles.card}>
                     <div className={styles.description}>
-                        <div className={styles.tag}></div>
 
                         <span className={styles.totalVendido}>
                             Total vendido: {soldData ? `R$${soldData.totalValue},00` : "Carregando..."}
                         </span>
+                        <div>
+            <div className={styles.atualizar}>
+                Tempo de atualização: {segundos}
+            
+
+            <button className={styles.buttonOrder} onClick={startContagem}>                
+            Atualizar
+            </button>
+            </div>
+            </div>
                     </div>
                 </div>
                 <div className={styles.main}>
                     <article className={styles.article}>
                         <span className={styles.rankingProdutos}>
                             <span className={styles.ranking}> Ranking de produtos</span>
-                            { rankingProduct.length > 0 ?rankingProduct.map((produto) => (
+                            { rankingProduct.length > 0 ? rankingProduct.map((produto) => (
                                 <div key={produto.id} className={styles.rankingProduct}>
                                     <div className={styles.descriptionProduct}>
                                     <p > {produto.produto}</p>
                                     <p > {produto.quantidade}</p>
-                                    <p> R${produto.price},00</p>
+                                    <p> R${produto.price}</p>
                                     </div>
-                                   
                                 </div>
-                            )): <span className={styles.noProducts}>Carregando produtos...</span>}
+                            )) : <span className={styles.noProducts}>Carregando produtos...</span>}
                         </span>
                     </article>
                     <aside className={styles.aside}>
@@ -92,6 +135,8 @@ export default function Dashboard() {
                     </aside>
                 </div>
             </section>
+
+            
         </main>
     );
 }

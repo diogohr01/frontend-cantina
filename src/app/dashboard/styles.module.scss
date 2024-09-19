@@ -21,6 +21,7 @@
       border-radius: 16px;
       flex-direction: column;
       align-items: center;
+      padding-bottom: 2px;
      // border: 2px solid white;
       
 }
@@ -139,9 +140,9 @@
   }
   .descriptionProduct p:first-child {
       flex: 2; 
-      white-space: nowrap; 
+      white-space: nowrap; /* não pula para outra linha */
       overflow: hidden; 
-      text-overflow: ellipsis; 
+      text-overflow: ellipsis; /* Adiciona reticências (...) quando o texto for muito longo */
   }
   
   
@@ -175,4 +176,26 @@
             border-bottom: solid 1.5px gray;
       color: var(--white);
       
+}
+
+.atualizar{
+      display: flex;
+      gap: 16px;
+      margin-bottom: 1.5px
+      
+}
+
+.buttonOrder{
+      border-radius: 8px;
+      background-color: var(--orange-700);
+      font-weight: bold;
+      font-size: 16px;
+      color: var(--white);
+      transition: all 0.2s;
+      border: 0;
+      padding: 3px;
+      
+      &:hover{
+            color: #000;
+      }
 }
