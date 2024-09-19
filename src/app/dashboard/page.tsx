@@ -120,7 +120,7 @@ export default function Dashboard() {
                                     <p> R${produto.price}</p>
                                     </div>
                                 </div>
-                            )) : <span className={styles.noProducts}>Carregando produtos...</span>}
+                            )) : <span className={styles.noProducts}>Nenhum produto encontrado...</span>}
                         </span>
                     </article>
                     <aside className={styles.aside}>
