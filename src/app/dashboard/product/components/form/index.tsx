@@ -87,7 +87,7 @@ export function Form({ categories }: Props) {
     event.target.value = maskedValue;
   }
 
-  const maskCurrency = (valor: string, locale = "pt-BR", currency = "BRL") => {
+  const maskCurrency = (valor: string, locale = "pt-br", currency = "BRL") => {
     return new Intl.NumberFormat(locale, {
       style: "currency",
       currency,

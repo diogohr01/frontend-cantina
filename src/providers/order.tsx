@@ -26,6 +26,10 @@ interface OrderItemProps {
             name: string | null;
             draft: boolean;
             status: boolean;
+            paid: boolean;
+            qrcode?: string; // Opcional, já que no modelo pode ser null
+            txid?: string; // Opcional, já que no modelo pode ser null
+            dataFechamento?: Date; // Opcional, já que no modelo pode ser null
       }
 }
 
@@ -75,7 +79,7 @@ export function OrderProvider({ children }: OrderProviderProps) {
                   order_id: order_id
             }
             try {
-                   await api.put('order/finish', data, {
+                  await api.put('order/finish', data, {
                         headers: {
                               Authorization: `Bearer ${token}`
                         }
@@ -89,11 +93,11 @@ export function OrderProvider({ children }: OrderProviderProps) {
                   return;
             }
 
-            
+
             toast.success("Pedido finalizado com sucesso");
             router.refresh();
             setIsOpen(false);
-            
+
 
       }
 
