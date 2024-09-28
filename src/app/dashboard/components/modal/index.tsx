@@ -23,10 +23,13 @@ export function ModalOrder(){
                               <section className={styles.item}>
                               <b>{item.produto.name}</b>
                               <span>Quantidade: {item.amount}</span>  
+                            
                               </section> 
                         ))}
+                        <b> <span>{order[0].order.paid ? "Pago: SUCESSO" : "Pago: PENDENTE"}</span></b>
 
-                        <button className={styles.buttonOrder} onClick={()=>onRequestFinish(order[0].order.id)}>Concluir um pedido</button>
+
+             { /*  <button className={styles.buttonOrder} onClick={()=>onRequestFinish(order[0].order.id)}>Concluir um pedido</button> */}
                   </article>
             </section>
                   teste

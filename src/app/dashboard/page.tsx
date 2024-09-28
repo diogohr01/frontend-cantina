@@ -94,7 +94,7 @@ export default function Dashboard() {
                     <div className={styles.description}>
 
                         <span className={styles.totalVendido}>
-                            Total vendido: {soldData ? `R$${soldData.totalValue},00` : "Carregando..."}
+                            Total vendido: {soldData ? `R$${soldData.totalValue.toFixed(2)}` : "Carregando..."}
                         </span>
                         <div>
             <div className={styles.atualizar}>
@@ -117,7 +117,7 @@ export default function Dashboard() {
                                     <div className={styles.descriptionProduct}>
                                     <p > {produto.produto}</p>
                                     <p > {produto.quantidade}</p>
-                                    <p> R${produto.price}</p>
+                                    <p> R${produto.price.toFixed(2)}</p>
                                     </div>
                                 </div>
                             )) : <span className={styles.noProducts}>Nenhum produto encontrado...</span>}
@@ -140,3 +140,5 @@ export default function Dashboard() {
         </main>
     );
 }
+
+//olá 
