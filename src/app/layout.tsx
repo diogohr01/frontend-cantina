@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Usando o caminho correto para o favicon */}
+    
         <link rel="icon" href={logoImgCafe} type="image/svg+xml" sizes="any" />
       </head>
       <body className={inter.className}>
